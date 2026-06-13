@@ -1,0 +1,178 @@
+# ASPM Market Strategy: True Gap Analysis & Position Defense
+**Prepared June 2026 | Working document — strategy and direction**
+
+---
+
+## 1. Executive Summary
+
+The generic "Agent Security Posture Management" play — discover agents, map tools, enforce least privilege, cross-platform — **is no longer an open market**. It was open in early 2024. It is now contested by venture-backed companies with $100M+ war chests, 1,000%+ ARR growth, and OWASP-validated category leadership. Entering that fight head-on as a solo founder gets crushed by funded posture, lifecycle, and identity platforms within 12 months.
+
+**However, the research surfaced a genuinely unoccupied position that maps almost perfectly to your background:**
+
+> **Agent governance for regulated, classified, and air-gapped environments — RMF-native, ATO-evidence-generating, deployable where SaaS cannot go.**
+
+A regulatory forcing function just appeared: the FY2026 NDAA (Section 1513) directs DoD to build an AI/ML security framework and integrate it into DFARS and CMMC, with a status update to Congress due June 16, 2026 — this week. Every defense contractor deploying AI agents will soon face a compliance requirement that none of the commercial agent-security vendors are architected to serve. The DoD AI Cybersecurity RMF Tailoring Guide v2 (July 2025) already extends RMF and CNSSI 1253 to the AI lifecycle. Nobody has built the tooling layer for it.
+
+That is the wedge. The rest of this document justifies it.
+
+---
+
+## 2. Market State: Funding, Consolidation, and What It Means
+
+### 2.1 The money already in the category
+- Top agentic AI security and adjacent identity startups have raised billions across posture, lifecycle, NHI, and cloud-security categories.
+- The category leader has raised a nine-figure round and reports hypergrowth.
+- Lifecycle platforms are already selling into Fortune 500 accounts with end-to-end AI governance language.
+- Identity platforms are extending NHI security into agent identity and MCP server posture.
+- CB Insights Mosaic: agent security startups average a 768 score vs. 370 for all private companies — the hottest sub-category in cybersecurity.
+
+### 2.2 The M&A wave (the hyperscaler/platform "takeover" pattern you asked about)
+- **Google acquired Wiz for $32B** (closed March 2026) — largest pure-play cyber acquisition ever.
+- **Palo Alto acquired CyberArk for ~$25B** (closed Feb 2026) — identity is now a platform-consolidation battleground.
+- CrowdStrike acquired Pangea; Cato Networks acquired Aim Security; F5 acquired CalypsoAI (Jan 2026); Palo Alto acquired Protect AI (~$500–700M).
+- CB Insights flags TrustLogix and Protecto as elevated 2-year M&A likelihood: early-stage, strong scores, low funding — i.e., **cheap to buy**.
+
+**Interpretation:** Hyperscalers and security platforms are not building agent security organically at speed — they are *waiting for winners to emerge and buying them*. The Wiz playbook is the category playbook: build cross-platform (which the platform owners structurally cannot do), become the neutral layer, get acquired at a premium. This is not a threat to a new entrant; it is the *exit model*. The threat is the already-funded startups, not Microsoft.
+
+### 2.3 Why hyperscalers won't build cross-platform governance themselves
+Three structural reasons, all confirmed by current behavior:
+1. **Lock-in economics.** Every hyperscaler publicly endorses interoperability (MCP, A2A) while building for lock-in. An agent governance layer that works fluidly across all vendor platforms *commoditizes those platforms*. Salesforce wants agents living in Data 360; Microsoft wants them in Fabric. Neither will fund a neutral control plane.
+2. **Liability avoidance.** Surfacing the full risk picture of agents on your own platform creates adoption friction and discovery liability. Their security features are platform-native and platform-flattering by design.
+3. **Demand-side spending gap.** Gartner data shows enterprises spend ~17x more on AI tools than on securing AI. Hyperscalers chase the 17x side; the 1x side is left to specialists — until a specialist gets big enough to buy.
+
+**But note the corollary risk:** because acquisition is the pattern, funded startups are racing to be the acquisition target. They will out-feature, out-market, and out-integrate any new generalist entrant. You cannot win the general market. You can win a market they are structurally unable to enter quickly.
+
+---
+
+## 3. Category Deep-Dive: What Commercial Tools Cover and Where They Fail
+
+### 3.1 Category leader
+**Covers:** Discovery of models/agents/MCP servers/data sources; Agentic Risk Map (blast-radius visualization — they shipped your "killer feature" in Oct 2025); posture management; runtime guardrails; automated red teaming; OWASP agentic Top 10 mapping (they discovered ForcedLeak and GeminiJack).
+**Real gaps (from their own published research):**
+- **The Skills/context-layer blind spot.** Public commercial research concedes that organizations have governed the observable half: MCP tool calls are loggable, but Skills/instruction-sets load into model reasoning context where current observability cannot follow. The practical control surface is amplifier governance: capability, autonomy, allowlisting, and version control.
+- **SaaS-only delivery.** Cloud-delivered platform; no evidence of air-gapped, IL4/IL5, or classified-enclave deployability.
+- **No compliance-artifact output.** Maps to OWASP, not to NIST 800-53/CNSSI 1253 control families. Cannot produce ATO evidence.
+
+### 3.2 Lifecycle platforms
+**Covers:** Posture for Copilot Studio, Agentforce, ChatGPT Enterprise, Bedrock, Azure AI Foundry, Vertex; endpoint agents (Cursor, Claude Desktop); runtime AIDR with stateful threat engine; Correlation Agent for intent analysis.
+**Real gaps:**
+- **No offensive/red-team capability** (documented third-party finding) — detection and prevention only.
+- **Enterprise-heavy GTM.** Fortune 500 sales motion; mid-market and below are economically unserved.
+- Their own CSA survey is an admission: shadow agents appear *before* governance structures exist, and "existing compliance frameworks may be poorly suited to autonomous systems" — they name the compliance gap but sell a detection product.
+
+### 3.3 Identity platforms
+**Covers:** NHI lifecycle, AI agent identities, MCP servers, just-in-time access, secrets posture. Strong thesis: "to secure agents, secure their NHIs."
+**Real gaps:** Identity-and-access centric — weak on action governance, behavioral analytics, and compliance reporting. Fortune 1000 focus. No regulated-environment story.
+
+### 3.4 The rest of the field
+- **WitnessAI, TrojAI, Lasso, Lakera, HiddenLayer, CalypsoAI (now F5):** runtime/model-layer protection, prompt-injection defense, red-teaming. Not posture or governance plays.
+- **JetStream, Wayfound, Obsidian, Relyance:** observability/supervision niches; venture-backed but narrower.
+- **Saviynt, Okta, Microsoft Entra Agent ID, Salesforce:** platform IAM extending to agents — platform-native, lock-in-aligned, structurally incapable of neutral cross-platform coverage.
+- **MCP gateways (Harmonic et al.):** chokepoint enforcement for MCP traffic only; no inventory, no Skills coverage, no compliance layer.
+
+### 3.5 The honest conclusion
+Every box in the original ASPM MVP spec — discovery, tool inventory, action mapping, risk analysis, governance dashboard — is shipped today by at least two funded commercial tools, and blast-radius visualization has already been productized. **Feature-level differentiation in the commercial market is dead on arrival.**
+
+---
+
+## 4. The True Gaps (Validated, Not Hoped-For)
+
+Ranked by defensibility × founder fit × regulatory tailwind:
+
+### Gap 1 — Regulated / Defense / Classified environments (THE WEDGE)
+**Evidence:**
+- FY2026 NDAA Section 1513 mandates a DoD AI/ML cybersecurity framework, to be integrated into **DFARS and CMMC**. Status update to Congress due June 16, 2026. CMMC itself took years from NDAA provision to enforcement — meaning the contractors who prepare now win the contracts later, exactly as happened with CMMC 1.0/2.0.
+- DoD AI Cybersecurity RMF Tailoring Guide v2 (July 2025) already maps MITRE ATLAS threat vectors to CNSSI 1253 controls across the AI lifecycle — including a **disposal phase requiring secure destruction of model weights, training data, and containers**. No commercial tool addresses AI/agent disposal at all.
+- Microsoft Commercial 365 is *not compliant* for CUI environments (no longer FedRAMP-aligned per Microsoft's own public-sector guidance) — the hyperscaler agent platforms themselves are partially locked out of this market.
+- FedRAMP/IL4/IL5 authorization takes years and is economically irrational for a SaaS startup chasing Fortune 500 logos. The funded SaaS players will not come here before 2028 at the earliest.
+
+**What the product becomes here:** Agent inventory + action mapping + risk classification **expressed as RMF artifacts** — control mappings to 800-53/CNSSI 1253, POA&M-ready findings, eMASS-importable evidence, continuous-monitoring outputs that an ISSM can hand to an AO. Deployable on-prem and air-gapped.
+
+**One-line positioning:** *"The agent governance layer for environments where SaaS can't go and auditors must sign."*
+
+### Gap 2 — Compliance-artifact generation ("Agent ATO automation")
+No vendor outputs auditor-ready packages. Commercial tools map to internal issue models or OWASP-style risk catalogs. Nobody maps agent posture to **NIST 800-53, CNSSI 1253, CMMC practices, or EU AI Act articles** and generates the evidence binder. This is pure ISSM/ISSO muscle memory — your daily job for a decade — productized. It is also the feature regulated buyers actually budget for, because audit failure has a dollar value and CMMC failure means contract ineligibility.
+
+### Gap 3 — The Skills/context-layer governance gap
+Public commercial research defines this gap and acknowledges current tooling cannot observe it directly: Skills and instruction-sets load into model context and act inside reasoning, invisible to MCP-level logging. The practical control surface is **pre-deployment governance**: Skill/instruction-text auditing, allowlisting, version pinning, and amplifier control (capability + autonomy budgets). A lightweight "Skill registry and audit" capability is buildable solo and differentiated because the commercial tooling layer has acknowledged the blind spot.
+
+### Gap 4 — EU / NATO sovereignty
+EU AI Act enforcement is phasing in; data-residency and sovereignty requirements exclude US-SaaS-only vendors from many European public-sector and NATO-adjacent deals. You sit in the KMC with three years embedded at SHAPE/NATO HQ and a NATO Secret clearance. The number of founders on earth with that profile plus agent-security product instincts rounds to single digits.
+
+### Gap 5 — Mid-market affordability
+Real but weak as a primary wedge: low willingness-to-pay, brutal CAC, and the funded players will move down-market with PLG tiers the moment it matters. Treat as a channel experiment, not the strategy.
+
+### Gap 6 — Agent decommissioning / disposal lifecycle
+The DoD tailoring guide *requires* it; no product does it. Small feature, disproportionate differentiation in the regulated wedge. Fold into Gap 1.
+
+---
+
+## 5. Repositioning: From "ASPM" to a Defensible Product
+
+**Old positioning (foreclosed):** "Discover every AI agent. Govern every action." — This is now commercial posture-platform positioning, with $100M+ behind it.
+
+**New positioning:**
+> **Agent governance and ATO automation for regulated environments.**
+> Discover every agent. Map every action to a control. Generate the evidence. Walk into the audit ready.
+
+**What changes in the MVP:**
+| Keep | Cut | Add |
+|---|---|---|
+| Agent discovery & inventory | Blast-radius graph as differentiator (already shipped by commercial tooling) | NIST 800-53 / CNSSI 1253 / CMMC control mapping engine |
+| Tool & action mapping with risk classes | Runtime detection ambitions (Layer 2/3) — different company | eMASS-compatible evidence export (POA&M, SAR-style findings) |
+| Policy allow/deny model | Generic SaaS multi-tenant architecture | On-prem / air-gapped deployment (single binary or container, no phone-home) |
+| Shadow-agent detection | Consumer-platform breadth (n8n, etc.) initially | Skill/instruction-set registry & audit (Gap 3) |
+| | | Agent disposal/decommission workflow (Gap 6) |
+
+**Scope discipline:** You are not building "all 20 OWASP risks." You are building the **governance + evidence layer** that lets a regulated org *demonstrate* OWASP/RMF coverage. Runtime protection is a partnership or roadmap item, never the MVP.
+
+---
+
+## 6. Why This Position Is Protected
+
+**Against funded SaaS players:** FedRAMP/IL authorization economics, air-gap engineering, and RMF domain language are 2–3 year detours from their Fortune 500 SaaS land-grab. Their investors are paying for ARR velocity, not ATO paperwork. By the time the NDAA 1513 framework hits DFARS clauses, you can be the incumbent know-how.
+
+**Against hyperscalers:** They are structurally conflicted (lock-in vs. neutrality), partially excluded (M365 Commercial not CUI-compliant), and behaviorally committed to buying rather than building in this category. The $660–690B 2026 capex is going to compute and power, not governance tooling.
+
+**Against commoditization:** The moat is not code — it's the **control-mapping corpus and accreditation know-how**. Mappings of agent behaviors → 800-53/CNSSI 1253/CMMC controls, validated against real assessor expectations, compound like a rules engine. Open-source the schema; keep the validated mappings and evidence engine commercial.
+
+**Founder-fit moat:** Active Secret + NATO Secret clearances, 10 years DoD/NATO cyber, ISSM practice, eMASS/RMF fluency, SHAPE relationships, KMC/OCONUS contractor network (GDIT, Spektrum/NCIA orbit), instructor platform (Mission Next), media platform (Cyber Shop Talk), and an OWASP talk on securing AI agents already scheduled. No funded competitor's founding team can replicate this stack.
+
+---
+
+## 7. Execution Roadmap (Aligned to Your Transition Timeline)
+
+**Phase 0 — Now → Sep 2026 (authority building, zero cost):**
+- Deliver the OWASP talk; reframe its close around the NDAA 1513 / "CMMC for AI" wave — plant the flag publicly.
+- Publish an open **"Agent RMF Overlay"**: OWASP Agentic Top 10 ↔ NIST 800-53/CNSSI 1253 control mapping, referencing the DoD AI RMF Tailoring Guide v2. Release on GitHub + Cyber Shop Talk episodes. This is the SEO/credibility asset competitors can't fake.
+- Track the Section 1513 congressional status report (due this month) and publish the first practitioner analysis of it.
+
+**Phase 1 — Oct → Dec 2026 (prototype while active duty):**
+- Build the evidence engine MVP: ingest an agent inventory (CSV/JSON/API), map to controls, output POA&M + findings package. Air-gap-friendly by default (local-first, no telemetry).
+- Validate with 3–5 ISSMs/ISSOs in your network (KMC, NCIA orbit, Mission Next alumni). Target: one letter of intent or paid pilot.
+
+**Phase 2 — Jan → Apr 2027 (SkillBridge = full-time build window):**
+- Seven Eagle SkillBridge becomes your funded founder runway. Ship v1 to pilot customers.
+- Hybrid revenue model: **Agent ATO readiness assessments** (consulting, $10–25K engagements, immediate cash) feeding product development — the classic services-to-product bootstrap for DIB tooling.
+
+**Phase 3 — Jul 2027+ (post-separation):**
+- Decision gate: if a contractor role (GDIT CDS ISSO) is signed, run this as a side product targeting your own employer's ecosystem pain; if pilot traction is strong, evaluate going full founder. The product and the job hunt reinforce each other — every artifact above is also résumé-grade evidence for ISSM/CDS roles.
+
+---
+
+## 8. Risks (Honest)
+
+1. **Regulatory timing.** NDAA 1513 has no implementation deadline; CMMC took ~5 years. Mitigation: the consulting wedge monetizes the *anticipation* phase; you don't need the DFARS clause to exist to sell readiness.
+2. **A funded player pivots to FedRAMP early** (for example, a GovCloud offering). Mitigation: even then, they need cleared personnel, air-gap delivery, and RMF fluency — partner or be acquired rather than fight.
+3. **Solo-founder bandwidth** during an active job transition. Mitigation: Phase 0/1 are deliberately content-and-spreadsheet-weight, not platform-weight; the heavy build waits for SkillBridge.
+4. **DoD AI consolidation onto platform-native tooling** (e.g., Microsoft Entra Agent ID inside GCC High). Mitigation: cross-platform + evidence-layer positioning survives platform IAM; an ISSM still needs the audit binder regardless of whose IAM runs underneath.
+5. **Name/category:** Keep ASPM consistent on the prototype, but treat the name as a category descriptor until pilot feedback proves it should become the durable brand.
+
+---
+
+## 9. The One-Paragraph Strategy
+
+The cross-platform agent-security land-grab is over for new entrants — venture capital got there first, and the hyperscalers' playbook is to buy the winner, not build. The unguarded ground is where SaaS can't deploy and auditors must sign: defense, classified, and regulated environments now facing a statutory AI-security mandate (NDAA FY2026 §1513 → DFARS/CMMC). Build the agent governance and ATO-evidence layer for that world — RMF-native, air-gap-deployable, control-mapped — monetize the anticipation phase through readiness assessments, and let a decade of ISSM practice, active clearances, and NATO relationships be the moat no funded competitor can raise money to replicate.
+
+---
+*Sources: CB Insights agentic security reports (2025–2026), Momentum Cyber 2025 Almanac, commercial AI security whitepapers and launch coverage (2025–2026), OWASP GenAI Security Project (LLM Top 10 2025; Agentic Top 10 2026; AI Security Landscape Q2 2026), Crowell & Moring NDAA FY2026 §1513 analysis, DoD AI Cybersecurity RMF Tailoring Guide v2 (July 2025), BDO DFARS/CMMC rollout analysis, Kiteworks federal AI compliance research, Gartner security forecast coverage, hyperscaler capex reporting (Futurum, CreditSights, IEEE ComSoc).*

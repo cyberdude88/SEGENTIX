@@ -1,0 +1,178 @@
+# Known frameworks and their control identifiers.
+#
+# This file is the registry that mapping files in `corpus/mappings/` must
+# reference. The validator (`npm run validate-corpus`) rejects mappings that
+# point at frameworks or control IDs not listed here.
+#
+# Control IDs are stored as bare strings; names are advisory and may lag the
+# official source. When a framework's `controls:` list is empty, the
+# validator does not constrain which IDs may be referenced for it — useful
+# while a framework is being seeded.
+
+frameworks:
+  - id: owasp-agentic-top-10
+    name: OWASP Agentic AI Top 10
+    version: "2025"
+    url: https://genai.owasp.org/llmrisk/agentic-ai/
+    controls:
+      - id: ASI01
+        name: Memory Poisoning
+      - id: ASI02
+        name: Tool Misuse
+      - id: ASI03
+        name: Privilege Compromise
+      - id: ASI04
+        name: Resource Overconsumption
+      - id: ASI05
+        name: Cascading Hallucination Attacks
+      - id: ASI06
+        name: Intent Breaking & Goal Manipulation
+      - id: ASI07
+        name: Misaligned & Deceptive Behaviors
+      - id: ASI08
+        name: Repudiation
+      - id: ASI09
+        name: Identity Spoofing & Impersonation
+      - id: ASI10
+        name: Overwhelming Human-in-the-Loop
+
+  - id: owasp-llm-top-10
+    name: OWASP Top 10 for LLM Applications
+    version: "2025"
+    url: https://genai.owasp.org/llm-top-10/
+    controls:
+      - id: LLM01
+        name: Prompt Injection
+      - id: LLM02
+        name: Sensitive Information Disclosure
+      - id: LLM03
+        name: Supply Chain
+      - id: LLM04
+        name: Data and Model Poisoning
+      - id: LLM05
+        name: Improper Output Handling
+      - id: LLM06
+        name: Excessive Agency
+      - id: LLM07
+        name: System Prompt Leakage
+      - id: LLM08
+        name: Vector and Embedding Weaknesses
+      - id: LLM09
+        name: Misinformation
+      - id: LLM10
+        name: Unbounded Consumption
+
+  # Subset only. Expand as mappings cite new controls. The validator does not
+  # require this list to be complete — only that every cited ID is present.
+  - id: nist-800-53
+    name: NIST SP 800-53 Rev. 5
+    version: "Rev. 5"
+    url: https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final
+    controls:
+      - id: AC-2
+        name: Account Management
+      - id: AC-3
+        name: Access Enforcement
+      - id: AC-4
+        name: Information Flow Enforcement
+      - id: AC-6
+        name: Least Privilege
+      - id: AU-2
+        name: Event Logging
+      - id: AU-3
+        name: Content of Audit Records
+      - id: AU-10
+        name: Non-Repudiation
+      - id: AU-12
+        name: Audit Record Generation
+      - id: CA-6
+        name: Authorization
+      - id: CA-7
+        name: Continuous Monitoring
+      - id: CM-7
+        name: Least Functionality
+      - id: CM-8
+        name: System Component Inventory
+      - id: IA-2
+        name: Identification and Authentication (Organizational Users)
+      - id: IA-5
+        name: Authenticator Management
+      - id: IA-9
+        name: Service Identification and Authentication
+      - id: MP-6
+        name: Media Sanitization
+      - id: RA-3
+        name: Risk Assessment
+      - id: RA-5
+        name: Vulnerability Monitoring and Scanning
+      - id: SA-9
+        name: External System Services
+      - id: SC-5
+        name: Denial-of-Service Protection
+      - id: SC-7
+        name: Boundary Protection
+      - id: SI-3
+        name: Malicious Code Protection
+      - id: SI-4
+        name: System Monitoring
+      - id: SI-10
+        name: Information Input Validation
+
+  # CNSSI 1253 is structurally a 800-53 overlay for national-security systems.
+  # Left empty pending dedicated authoring; mappings should reference 800-53
+  # until a CNSSI-specific divergence is captured.
+  - id: cnssi-1253
+    name: CNSSI 1253
+    version: "March 2014"
+    url: https://www.dcsa.mil/Portals/91/Documents/CTP/tools/CNSSI_No1253.pdf
+    controls: []
+
+  - id: cmmc-l2
+    name: CMMC Level 2
+    version: "v2.0"
+    url: https://dodcio.defense.gov/CMMC/
+    controls:
+      - id: AC.L2-3.1.1
+        name: Authorized Access Control
+      - id: AC.L2-3.1.5
+        name: Least Privilege
+      - id: AC.L2-3.1.7
+        name: Privileged Functions
+      - id: AU.L2-3.3.1
+        name: System Auditing
+      - id: AU.L2-3.3.2
+        name: User Accountability
+      - id: CM.L2-3.4.6
+        name: Least Functionality
+      - id: CM.L2-3.4.7
+        name: Nonessential Functionality
+      - id: IA.L2-3.5.1
+        name: Identification
+      - id: IA.L2-3.5.2
+        name: Authentication
+      - id: MP.L2-3.8.3
+        name: Media Disposal
+      - id: SC.L2-3.13.1
+        name: Boundary Protection
+      - id: SI.L2-3.14.1
+        name: Flaw Remediation
+      - id: SI.L2-3.14.6
+        name: Monitor Communications for Attacks
+
+  - id: eu-ai-act
+    name: EU AI Act
+    version: "Regulation (EU) 2024/1689"
+    url: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    controls:
+      - id: Art.9
+        name: Risk management system
+      - id: Art.10
+        name: Data and data governance
+      - id: Art.12
+        name: Record-keeping
+      - id: Art.13
+        name: Transparency and provision of information to deployers
+      - id: Art.14
+        name: Human oversight
+      - id: Art.15
+        name: Accuracy, robustness and cybersecurity

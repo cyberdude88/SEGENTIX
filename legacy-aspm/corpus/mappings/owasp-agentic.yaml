@@ -1,0 +1,264 @@
+# OWASP Agentic AI Top 10 ↔ NIST 800-53 Rev. 5 / CMMC L2 / EU AI Act
+#
+# All mappings here are status: draft. They are an opinionated starting
+# point authored 2026-06-12 and have NOT been independently reviewed by an
+# ISSM/ISSO. Treat them as a frame for review, not as authoritative.
+#
+# CNSSI 1253 mappings are deferred: CNSSI is a 800-53 overlay for NSS, so
+# the 800-53 references generally inherit. Capture CNSSI rows here only when
+# the NSS overlay diverges (e.g., higher confidentiality baseline).
+
+mappings:
+  - id: asi01-memory-poisoning
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI01
+      name: Memory Poisoning
+    description: |
+      An adversary contaminates an agent's long-term memory, vector store, or
+      conversational context so future decisions are steered against the
+      operator's interest. Includes RAG corpus tampering and embedding
+      poisoning.
+    targets:
+      - framework: nist-800-53
+        control: SI-10
+        relationship: partially-satisfies
+        notes: Input validation at ingest reduces the poisoning surface.
+      - framework: nist-800-53
+        control: SI-3
+        relationship: informs
+        notes: Malicious-content scanning of memory writes is analogous to malicious code protection.
+      - framework: nist-800-53
+        control: AU-2
+        relationship: supports
+        notes: Auditing memory writes is the detective control for late-discovered poisoning.
+      - framework: cmmc-l2
+        control: SI.L2-3.14.1
+        relationship: informs
+    status: draft
+
+  - id: asi02-tool-misuse
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI02
+      name: Tool Misuse
+    description: |
+      The agent invokes its tools in ways the operator did not intend —
+      exfiltrating data, mutating state, or reaching destructive actions via
+      legitimate tool surfaces.
+    targets:
+      - framework: nist-800-53
+        control: AC-3
+        relationship: satisfies
+        notes: Tool-level allow/deny is the access enforcement boundary.
+      - framework: nist-800-53
+        control: AC-6
+        relationship: satisfies
+        notes: Risk-class restrictions (no Delete / Admin without policy) realize least privilege.
+      - framework: nist-800-53
+        control: AU-2
+        relationship: partially-satisfies
+        notes: Tool-call events count as auditable events; AU-2 satisfied only if action class is logged.
+      - framework: cmmc-l2
+        control: AC.L2-3.1.5
+        relationship: satisfies
+      - framework: cmmc-l2
+        control: AU.L2-3.3.1
+        relationship: partially-satisfies
+    status: draft
+
+  - id: asi03-privilege-compromise
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI03
+      name: Privilege Compromise
+    description: |
+      An agent acquires elevated rights — through delegated identity, OAuth
+      consent, NHI reuse, or supply-chain skill injection — beyond what its
+      owner intended.
+    targets:
+      - framework: nist-800-53
+        control: AC-2
+        relationship: satisfies
+        notes: NHI lifecycle management for agent identities.
+      - framework: nist-800-53
+        control: AC-6
+        relationship: satisfies
+      - framework: nist-800-53
+        control: IA-9
+        relationship: satisfies
+        notes: Service / non-human identity authentication.
+      - framework: nist-800-53
+        control: IA-5
+        relationship: satisfies
+        notes: Secret / token rotation for agent NHIs.
+      - framework: cmmc-l2
+        control: AC.L2-3.1.7
+        relationship: satisfies
+    status: draft
+
+  - id: asi04-resource-overconsumption
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI04
+      name: Resource Overconsumption
+    description: |
+      An agent — under adversarial prompt or its own runaway loop — exhausts
+      tokens, API quota, compute, or downstream system capacity. Overlaps
+      with LLM10 Unbounded Consumption.
+    targets:
+      - framework: nist-800-53
+        control: SC-5
+        relationship: partially-satisfies
+        notes: Quota and rate limits on tool calls and model invocations.
+      - framework: nist-800-53
+        control: SI-4
+        relationship: supports
+        notes: Monitoring for anomalous usage spikes.
+      - framework: cmmc-l2
+        control: SC.L2-3.13.1
+        relationship: informs
+    status: draft
+
+  - id: asi05-cascading-hallucinations
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI05
+      name: Cascading Hallucination Attacks
+    description: |
+      A hallucinated intermediate output is consumed by a downstream tool or
+      agent and propagates as if it were ground truth. Particularly acute in
+      multi-agent topologies.
+    targets:
+      - framework: nist-800-53
+        control: SI-10
+        relationship: partially-satisfies
+        notes: Output validation between agent steps.
+      - framework: nist-800-53
+        control: AU-3
+        relationship: supports
+        notes: Full provenance in audit records lets analysts trace the cascade.
+    status: draft
+
+  - id: asi06-intent-breaking
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI06
+      name: Intent Breaking & Goal Manipulation
+    description: |
+      An adversary reshapes the agent's goal or instruction set such that it
+      pursues an objective the operator did not authorize.
+    targets:
+      - framework: nist-800-53
+        control: CM-7
+        relationship: informs
+        notes: Skill/instruction-set allowlisting is the least-functionality analogue.
+      - framework: nist-800-53
+        control: SI-10
+        relationship: partially-satisfies
+        notes: Input validation on goal/instruction updates.
+      - framework: cmmc-l2
+        control: CM.L2-3.4.6
+        relationship: informs
+    status: draft
+
+  - id: asi07-misaligned-deceptive
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI07
+      name: Misaligned & Deceptive Behaviors
+    description: |
+      The agent produces outputs that mislead the operator or evaluator about
+      its actual state, actions taken, or capabilities. Includes deceptive
+      reasoning traces and falsified tool-call summaries.
+    targets:
+      - framework: nist-800-53
+        control: SI-4
+        relationship: supports
+        notes: Behavioral monitoring is the detective control.
+      - framework: nist-800-53
+        control: AU-10
+        relationship: partially-satisfies
+        notes: Non-repudiable logging of actual tool calls vs. summarized claims.
+      - framework: eu-ai-act
+        control: Art.13
+        relationship: informs
+        notes: Transparency obligations to deployers.
+    status: draft
+
+  - id: asi08-repudiation
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI08
+      name: Repudiation
+    description: |
+      Inability to attribute an agent action to a specific agent, operator,
+      or delegated principal — typically because identity flows are not
+      preserved across tool calls.
+    targets:
+      - framework: nist-800-53
+        control: AU-10
+        relationship: satisfies
+      - framework: nist-800-53
+        control: AU-3
+        relationship: satisfies
+        notes: Audit records must carry the delegated principal chain.
+      - framework: nist-800-53
+        control: IA-2
+        relationship: supports
+      - framework: cmmc-l2
+        control: AU.L2-3.3.2
+        relationship: satisfies
+    status: draft
+
+  - id: asi09-identity-spoofing
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI09
+      name: Identity Spoofing & Impersonation
+    description: |
+      An adversary causes an agent to act as if it were a different agent,
+      user, or service principal — or to accept upstream input from a spoofed
+      caller.
+    targets:
+      - framework: nist-800-53
+        control: IA-9
+        relationship: satisfies
+      - framework: nist-800-53
+        control: IA-5
+        relationship: satisfies
+        notes: Cryptographic agent credentials and rotation.
+      - framework: nist-800-53
+        control: AC-4
+        relationship: supports
+        notes: Information flow enforcement on inter-agent messaging.
+      - framework: cmmc-l2
+        control: IA.L2-3.5.1
+        relationship: satisfies
+      - framework: cmmc-l2
+        control: IA.L2-3.5.2
+        relationship: satisfies
+    status: draft
+
+  - id: asi10-overwhelming-hitl
+    source:
+      framework: owasp-agentic-top-10
+      id: ASI10
+      name: Overwhelming Human-in-the-Loop
+    description: |
+      The agent floods reviewers with approval requests or low-signal alerts
+      until the human approves automatically or stops reviewing. The HITL
+      control degrades to rubber-stamp.
+    targets:
+      - framework: nist-800-53
+        control: CA-7
+        relationship: informs
+        notes: Continuous monitoring telemetry should surface HITL approval volume.
+      - framework: nist-800-53
+        control: SI-4
+        relationship: supports
+      - framework: eu-ai-act
+        control: Art.14
+        relationship: informs
+        notes: Human oversight requirements presume reviewers can meaningfully act.
+    status: draft

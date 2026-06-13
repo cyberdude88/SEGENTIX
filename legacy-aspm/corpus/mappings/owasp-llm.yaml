@@ -1,0 +1,104 @@
+# OWASP Top 10 for LLM Applications ↔ NIST 800-53 Rev. 5 / CMMC L2 / EU AI Act
+#
+# Subset: only the LLM IDs the SPEC.md three-layer model attributes to the
+# posture layer or the runtime-gateway / behavioral-analytics layers we want
+# to cite from the posture-layer evidence bundle. Status: draft.
+
+mappings:
+  - id: llm01-prompt-injection
+    source:
+      framework: owasp-llm-top-10
+      id: LLM01
+      name: Prompt Injection
+    description: |
+      Untrusted input (direct or indirect) hijacks the model's instructions,
+      causing it to override its operator-supplied prompt or to invoke tools
+      against the operator's intent. Posture-layer coverage is limited
+      (input provenance, tool allowlists); detection is a runtime concern.
+    targets:
+      - framework: nist-800-53
+        control: SI-10
+        relationship: partially-satisfies
+        notes: Input validation at the model boundary; full coverage requires runtime inspection (Layer 2).
+      - framework: nist-800-53
+        control: AC-4
+        relationship: informs
+        notes: Information flow enforcement between trust zones in the prompt context.
+    status: draft
+
+  - id: llm03-supply-chain
+    source:
+      framework: owasp-llm-top-10
+      id: LLM03
+      name: Supply Chain
+    description: |
+      Compromise of the model weights, training data, Skills, prompts, or
+      tool integrations the agent depends on — including third-party MCP
+      servers and shared instruction sets.
+    targets:
+      - framework: nist-800-53
+        control: SA-9
+        relationship: satisfies
+        notes: External system services — model providers, MCP hosts, Skill marketplaces.
+      - framework: nist-800-53
+        control: CM-8
+        relationship: satisfies
+        notes: Component inventory must include model versions, Skills, and tools per agent.
+      - framework: nist-800-53
+        control: RA-3
+        relationship: partially-satisfies
+      - framework: cmmc-l2
+        control: SI.L2-3.14.1
+        relationship: informs
+    status: draft
+
+  - id: llm06-excessive-agency
+    source:
+      framework: owasp-llm-top-10
+      id: LLM06
+      name: Excessive Agency
+    description: |
+      The agent is granted broader functionality, permissions, or autonomy
+      than its task requires. The core posture-layer concern. Overlaps with
+      ASI02 (Tool Misuse) and ASI03 (Privilege Compromise) on the manifest
+      side, but LLM06 frames it as a design defect rather than an attack.
+    targets:
+      - framework: nist-800-53
+        control: AC-6
+        relationship: satisfies
+        notes: Least privilege — the canonical control for this risk.
+      - framework: nist-800-53
+        control: CM-7
+        relationship: satisfies
+        notes: Least functionality — the Skill / tool allowlist mechanism.
+      - framework: nist-800-53
+        control: CA-6
+        relationship: supports
+        notes: Authorization decisions should be informed by autonomy budget.
+      - framework: cmmc-l2
+        control: AC.L2-3.1.5
+        relationship: satisfies
+      - framework: cmmc-l2
+        control: CM.L2-3.4.7
+        relationship: satisfies
+    status: draft
+
+  - id: llm07-system-prompt-leakage
+    source:
+      framework: owasp-llm-top-10
+      id: LLM07
+      name: System Prompt Leakage
+    description: |
+      The agent's system prompt — including embedded credentials, internal
+      policy, or business logic — is disclosed through model output. Posture
+      coverage is limited to discovering which agents embed secrets in
+      prompts; detection is runtime.
+    targets:
+      - framework: nist-800-53
+        control: IA-5
+        relationship: informs
+        notes: Credentials should never live in prompts; flag prompts containing secrets.
+      - framework: nist-800-53
+        control: AC-4
+        relationship: informs
+    status: draft
