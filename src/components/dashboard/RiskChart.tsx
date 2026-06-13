@@ -137,9 +137,10 @@ export default function RiskChart({
               radius={[0, 4, 4, 0]}
               barSize={14}
               cursor="pointer"
-              onClick={(d: { category?: string }) =>
-                d?.category && setSelected(d.category)
-              }
+              onClick={(d: unknown) => {
+                const cat = (d as { category?: string } | undefined)?.category;
+                if (cat) setSelected(cat);
+              }}
             >
               {data.map((d, i) => (
                 <Cell
