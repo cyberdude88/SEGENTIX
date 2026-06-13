@@ -6,11 +6,22 @@ The original freelance site is preserved at `/home/alex/freelance-site`. Do not 
 
 ## Positioning
 
-**ASPM** is agent governance and ATO automation for regulated environments.
+**ASPM** is agent governance for regulated, classified, sovereign, and
+air-gapped environments.
+
+ATO automation is the first packaged outcome, but the broader vision is an
+RMF-native governance layer for AI agents: inventory, action mapping, Skill
+governance, control evidence, disposal records, and audit-ready artifacts for
+environments where SaaS cannot go.
 
 Core promise:
 
 > Discover every agent. Map every action to a control. Generate the evidence. Walk into the audit ready.
+
+See [`STRATEGY.md`](./STRATEGY.md) for the CEO-level market strategy and
+vision derived from the Claude Fable strategy document. See
+[`MISSION.md`](./MISSION.md) for the product objectives and implementation
+functions.
 
 Audience:
 

@@ -25,13 +25,16 @@ This project is the ASPM copy of the cinematic freelance landing page. The origi
 
 ASPM is positioned as:
 
-> Agent governance and ATO automation for regulated environments.
+> Agent governance for regulated, classified, sovereign, and air-gapped
+> environments. ATO automation is the first packaged outcome, not the full
+> company vision.
 
 The page should reinforce:
 
 - agent discovery
 - control mapping to NIST 800-53 / CNSSI 1253 / CMMC
 - Skill / instruction-set governance
+- EU / NATO sovereignty and air-gap deployment
 - evidence export
 - air-gap and enclave deployment
 - RMF lifecycle workflow

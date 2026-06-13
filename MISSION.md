@@ -1,6 +1,6 @@
 # ASPM — Mission, Objectives, Redundancy, and Gap-Filling Functions
 
-> Working document derived from `market_strategy.txt` (June 2026) and reconciled
+> Working document derived from `STRATEGY.md` and `market_strategy.txt` (June 2026), and reconciled
 > against `SPEC.md` (current build). Supersedes the "Product positioning" line in
 > `SPEC.md` until that file is updated.
 
@@ -23,10 +23,12 @@ feature velocity and GTM reach within 12 months.
 > Discover every agent. Map every action to a control. Generate the evidence.
 > Walk into the audit ready.
 
-The product is no longer a generic posture dashboard. It is the **governance +
-evidence layer** that lets a regulated organization demonstrate OWASP/RMF
-coverage for AI agents, deployable on-prem and air-gapped, with control
-mappings to NIST 800-53 / CNSSI 1253 / CMMC / EU AI Act.
+The product is no longer a generic posture dashboard, and it is not only ATO
+automation. ATO evidence is the first packaged buyer outcome. The larger
+product is the **governance + evidence layer** that lets a regulated,
+classified, sovereign, or air-gapped organization govern AI agents and
+demonstrate OWASP/RMF coverage, with control mappings to NIST 800-53 / CNSSI
+1253 / CMMC / EU AI Act.
 
 **Forcing function:** FY2026 NDAA §1513 directs DoD to fold AI/ML security into
 DFARS and CMMC. Status report to Congress was due 2026-06-16. No commercial
