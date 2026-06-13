@@ -1,7 +1,7 @@
-# Agent Security Posture Management (ASPM)
+# SEGENTIX
 
 > A governance dashboard for AI agents across enterprise environments.
-> This repo is the working prototype — Next.js 14, mock data, no backend.
+> This repo is the working prototype — Next.js 16, mock data, no backend.
 
 ## Mission
 
@@ -25,7 +25,7 @@ Organizations are rapidly deploying AI agents across cloud platforms, SaaS appli
 - **Which NIST 800-53 / CNSSI 1253 / CMMC controls does each agent inherit, satisfy, or violate?**
 - **Where is the evidence package for the AO?**
 
-ASPM provides centralized discovery, visibility, governance, least-privilege enforcement, and **RMF-aligned evidence generation** for AI agents — deployable on-prem and air-gapped.
+SEGENTIX provides centralized discovery, visibility, governance, least-privilege enforcement, and **RMF-aligned evidence generation** for AI agents — deployable on-prem and air-gapped.
 
 ---
 
@@ -67,8 +67,8 @@ Coverage layers are surfaced on the `/reports` page.
 
 ## Stack
 
-- Next.js 14 (app router) + TypeScript
-- Tailwind CSS 3 + tailwindcss-animate
+- Next.js 16 (app router) + TypeScript
+- Tailwind CSS 4 + tailwindcss-animate
 - shadcn-style primitives (hand-rolled, Radix Dialog under the hood for Sheet/Modal)
 - Recharts
 - Lucide React icons
@@ -79,7 +79,7 @@ Coverage layers are surfaced on the `/reports` page.
 ## Run it
 
 ```bash
-cd ~/ASPM
+cd ~/SEGENTIX
 npm install
 npm run dev
 ```

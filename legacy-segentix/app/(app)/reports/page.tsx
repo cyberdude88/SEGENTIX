@@ -147,7 +147,7 @@ export default function ReportsPage() {
           <Badge variant="info">OWASP LLM Top 10 + ASI</Badge>
         </div>
         <p className="text-[12px] text-fg-muted -mt-1">
-          ASPM's posture layer is active. Runtime gateway and behavioral
+          SEGENTIX's posture layer is active. Runtime gateway and behavioral
           analytics complete coverage across LLM01–LLM10 and ASI01–ASI10.
         </p>
         <CoverageLayers />

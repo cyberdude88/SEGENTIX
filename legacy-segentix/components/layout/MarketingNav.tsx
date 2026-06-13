@@ -16,7 +16,7 @@ export default function MarketingNav() {
       <div className="mx-auto max-w-[1200px] h-full px-5 flex items-center gap-6">
         <Link href="/" className="flex items-center gap-2">
           <span className="h-6 w-6 rounded-md bg-accent" aria-hidden="true" />
-          <span className="text-[14px] font-semibold tracking-tight">ASPM</span>
+          <span className="text-[14px] font-semibold tracking-tight">SEGENTIX</span>
           <span className="text-[10px] text-fg-subtle tracking-wider uppercase rounded border [border-width:0.5px] border-line-strong px-1.5 py-0.5">
             v0.1
           </span>

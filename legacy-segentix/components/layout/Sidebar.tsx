@@ -36,7 +36,7 @@ export default function Sidebar() {
         <Link href="/demo" className="flex items-center gap-2">
           <span className="h-5 w-5 rounded-md bg-accent" aria-hidden="true" />
           <span className="text-[13px] font-semibold tracking-tight">
-            ASPM
+            SEGENTIX
           </span>
           <span className="text-[10px] text-fg-subtle tracking-wider uppercase rounded border [border-width:0.5px] border-line-strong px-1.5 py-0.5">
             v0.1

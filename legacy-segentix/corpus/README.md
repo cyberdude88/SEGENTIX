@@ -1,4 +1,4 @@
-# ASPM Mapping Corpus
+# SEGENTIX Mapping Corpus
 
 The canonical mapping table from agent-security threat catalogs (OWASP
 Agentic AI Top 10, OWASP LLM Top 10) to compliance frameworks
@@ -135,4 +135,4 @@ IDs are DoD-authored. EU AI Act article numbering is Regulation
 
 When this corpus is published as the Agent RMF Overlay (F6), the
 mappings — i.e., the relationship statements joining these catalogs — are
-licensed under CC BY 4.0 with attribution to the ASPM project.
+licensed under CC BY 4.0 with attribution to the SEGENTIX project.

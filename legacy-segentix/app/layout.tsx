@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ASPM — Agent governance for regulated environments",
+  title: "SEGENTIX — Agent governance for regulated environments",
   description:
     "Agent governance and ATO automation for environments where SaaS can't go and auditors must sign.",
 };

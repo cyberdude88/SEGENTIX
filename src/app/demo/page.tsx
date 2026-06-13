@@ -13,6 +13,7 @@ import ApprovalsPanel from "@/components/dashboard/ApprovalsPanel";
 import ComplianceMatrix from "@/components/dashboard/ComplianceMatrix";
 import EvidenceExport from "@/components/dashboard/EvidenceExport";
 import SiemIntegrations from "@/components/dashboard/SiemIntegrations";
+import UnapprovedCallers from "@/components/dashboard/UnapprovedCallers";
 import PolicyBuilder from "@/components/dashboard/PolicyBuilder";
 import SelfHealing, {
   SELF_HEALING_INCIDENTS,
@@ -33,6 +34,7 @@ import {
   SCOPE_ACCESS,
   SIEM_CONNECTORS,
   TOP_TOOLS,
+  UNAPPROVED_CALLERS,
   VIOLATIONS,
 } from "@/lib/mock-data";
 
@@ -64,7 +66,7 @@ export default function DashboardPage() {
           meta="All agents"
         >
           <CardContent>
-            <RiskChart data={RISK_BY_CATEGORY} />
+            <RiskChart data={RISK_BY_CATEGORY} agents={AGENTS} />
           </CardContent>
         </CollapsibleCard>
       </div>
@@ -138,6 +140,14 @@ export default function DashboardPage() {
         <CardContent>
           <TopToolsChart data={TOP_TOOLS} agents={AGENTS} />
         </CardContent>
+      </CollapsibleCard>
+    ),
+    callers: (
+      <CollapsibleCard
+        title="Unapproved API callers"
+        meta="Shadow LLM, embeddings, and tool-API usage outside the agent runtime"
+      >
+        <UnapprovedCallers callers={UNAPPROVED_CALLERS} />
       </CollapsibleCard>
     ),
     policy: (

@@ -2,7 +2,7 @@ import { Mail, Calendar, Github, Lock, type LucideIcon } from "lucide-react";
 import ContactForm from "@/components/marketing/ContactForm";
 
 export const metadata = {
-  title: "Contact — ASPM",
+  title: "Contact — SEGENTIX",
   description:
     "Get in touch about pilot deployments, the open RMF overlay, or design-partner conversations.",
 };
@@ -39,8 +39,8 @@ export default function ContactPage() {
           <ContactCard
             icon={Mail}
             label="Email"
-            value="hello@aspm.dev"
-            href="mailto:hello@aspm.dev"
+            value="hello@segentix.dev"
+            href="mailto:hello@segentix.dev"
             sub="General and design partners"
           />
           <ContactCard
@@ -54,7 +54,7 @@ export default function ContactPage() {
             icon={Lock}
             label="Encrypted"
             value="Signal · PGP on request"
-            href="mailto:hello@aspm.dev?subject=PGP%20request"
+            href="mailto:hello@segentix.dev?subject=PGP%20request"
             sub="Classified-adjacent topics"
           />
           <ContactCard
@@ -66,7 +66,7 @@ export default function ContactPage() {
           />
 
           <div className="hairline rounded-lg p-4 bg-bg-surface/40 text-[12px] text-fg-subtle leading-relaxed">
-            ASPM is a pre-seed prototype. No data submitted via this site is
+            SEGENTIX is a pre-seed prototype. No data submitted via this site is
             stored on a third-party SaaS — the form posts to a local handler
             for the demo. Production pilots are on-prem by default.
           </div>

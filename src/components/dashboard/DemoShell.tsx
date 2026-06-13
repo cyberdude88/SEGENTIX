@@ -19,6 +19,7 @@ import {
   Wrench,
   SlidersHorizontal,
   HeartPulse,
+  PlugZap,
   PanelLeftClose,
   PanelLeftOpen,
 } from "lucide-react";
@@ -33,6 +34,7 @@ export type DemoSectionId =
   | "access"
   | "compliance"
   | "tools"
+  | "callers"
   | "policy"
   | "healing";
 
@@ -80,6 +82,7 @@ export const sectionIcons: Record<DemoSectionId, typeof Bot> = {
   access: Network,
   compliance: FileCheck2,
   tools: Wrench,
+  callers: PlugZap,
   policy: SlidersHorizontal,
   healing: HeartPulse,
 };
@@ -92,6 +95,7 @@ const sectionLabels: Record<DemoSectionId, string> = {
   access: "Access",
   compliance: "Compliance",
   tools: "Tools",
+  callers: "Unapproved API callers",
   policy: "Policy & SIEM",
   healing: "Adaptive self-healing",
 };

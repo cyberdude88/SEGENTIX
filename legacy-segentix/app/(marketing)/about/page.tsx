@@ -1,7 +1,7 @@
 export const metadata = {
-  title: "About — ASPM",
+  title: "About — SEGENTIX",
   description:
-    "ASPM is the governance and evidence layer for AI agents in regulated, air-gapped, and sovereign environments.",
+    "SEGENTIX is the governance and evidence layer for AI agents in regulated, air-gapped, and sovereign environments.",
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
         Built for the audits the SaaS players can&apos;t pass.
       </h1>
       <p className="mt-5 text-[15px] text-fg-muted leading-relaxed">
-        ASPM is the governance and evidence layer for AI agents in regulated,
+        SEGENTIX is the governance and evidence layer for AI agents in regulated,
         air-gapped, and sovereign environments. Discover every agent. Map every
         action to a control. Generate the evidence. Walk into the audit ready.
       </p>

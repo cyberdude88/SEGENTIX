@@ -24,16 +24,16 @@ export default function Contact() {
 
           <div className="md:col-span-5 space-y-4 mono text-sm">
             <a
-              href="mailto:hello@aspm.dev"
+              href="mailto:hello@segentix.dev"
               className="block border border-accent/40 p-4 hover:border-accent hover:bg-accent/5 transition-colors"
             >
               <div className="text-xs text-fg-dim uppercase tracking-[0.2em] mb-1">
                 ▸ Email
               </div>
-              <div className="text-accent">hello@aspm.dev</div>
+              <div className="text-accent">hello@segentix.dev</div>
             </a>
             <a
-              href="mailto:hello@aspm.dev?subject=ASPM%20pilot"
+              href="mailto:hello@segentix.dev?subject=SEGENTIX%20pilot"
               target="_blank"
               rel="noreferrer"
               className="block border border-accent/40 p-4 hover:border-accent hover:bg-accent/5 transition-colors"
@@ -44,7 +44,7 @@ export default function Contact() {
               <div className="text-accent">Request design-partner access</div>
             </a>
             <a
-              href="mailto:hello@aspm.dev?subject=Agent%20RMF%20Overlay"
+              href="mailto:hello@segentix.dev?subject=Agent%20RMF%20Overlay"
               target="_blank"
               rel="noreferrer"
               className="block border border-accent/40 p-4 hover:border-accent hover:bg-accent/5 transition-colors"

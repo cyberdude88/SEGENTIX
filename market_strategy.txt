@@ -1,11 +1,11 @@
-# ASPM Market Strategy: True Gap Analysis & Position Defense
+# SEGENTIX Market Strategy: True Gap Analysis & Position Defense
 **Prepared June 2026 | Working document — strategy and direction**
 
 ---
 
 ## 1. Executive Summary
 
-The generic "Agent Security Posture Management" play — discover agents, map tools, enforce least privilege, cross-platform — **is no longer an open market**. It was open in early 2024. It is now contested by venture-backed companies with $100M+ war chests, 1,000%+ ARR growth, and OWASP-validated category leadership. Entering that fight head-on as a solo founder gets crushed by funded posture, lifecycle, and identity platforms within 12 months.
+The generic agent security category play — discover agents, map tools, enforce least privilege, cross-platform — **is no longer an open market**. It was open in early 2024. It is now contested by venture-backed companies with $100M+ war chests, 1,000%+ ARR growth, and OWASP-validated category leadership. Entering that fight head-on as a solo founder gets crushed by funded posture, lifecycle, and identity platforms within 12 months.
 
 **However, the research surfaced a genuinely unoccupied position that maps almost perfectly to your background:**
 
@@ -71,7 +71,7 @@ Three structural reasons, all confirmed by current behavior:
 - **MCP gateways (Harmonic et al.):** chokepoint enforcement for MCP traffic only; no inventory, no Skills coverage, no compliance layer.
 
 ### 3.5 The honest conclusion
-Every box in the original ASPM MVP spec — discovery, tool inventory, action mapping, risk analysis, governance dashboard — is shipped today by at least two funded commercial tools, and blast-radius visualization has already been productized. **Feature-level differentiation in the commercial market is dead on arrival.**
+Every box in the original SEGENTIX MVP spec — discovery, tool inventory, action mapping, risk analysis, governance dashboard — is shipped today by at least two funded commercial tools, and blast-radius visualization has already been productized. **Feature-level differentiation in the commercial market is dead on arrival.**
 
 ---
 
@@ -107,7 +107,7 @@ The DoD tailoring guide *requires* it; no product does it. Small feature, dispro
 
 ---
 
-## 5. Repositioning: From "ASPM" to a Defensible Product
+## 5. Repositioning: From "SEGENTIX" to a Defensible Product
 
 **Old positioning (foreclosed):** "Discover every AI agent. Govern every action." — This is now commercial posture-platform positioning, with $100M+ behind it.
 
@@ -166,7 +166,7 @@ The DoD tailoring guide *requires* it; no product does it. Small feature, dispro
 2. **A funded player pivots to FedRAMP early** (for example, a GovCloud offering). Mitigation: even then, they need cleared personnel, air-gap delivery, and RMF fluency — partner or be acquired rather than fight.
 3. **Solo-founder bandwidth** during an active job transition. Mitigation: Phase 0/1 are deliberately content-and-spreadsheet-weight, not platform-weight; the heavy build waits for SkillBridge.
 4. **DoD AI consolidation onto platform-native tooling** (e.g., Microsoft Entra Agent ID inside GCC High). Mitigation: cross-platform + evidence-layer positioning survives platform IAM; an ISSM still needs the audit binder regardless of whose IAM runs underneath.
-5. **Name/category:** Keep ASPM consistent on the prototype, but treat the name as a category descriptor until pilot feedback proves it should become the durable brand.
+5. **Name/category:** Keep SEGENTIX consistent on the prototype, but treat the name as a category descriptor until pilot feedback proves it should become the durable brand.
 
 ---
 

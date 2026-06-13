@@ -1,4 +1,4 @@
-# ASPM CEO Strategy and Vision
+# SEGENTIX CEO Strategy and Vision
 
 > Derived from the June 2026 CEO strategy document written by Claude Fable.
 > This is the north-star product and market framing for the demo, not just a
@@ -8,7 +8,7 @@
 
 ## Strategic Thesis
 
-ASPM is not only an ATO automation product. ATO evidence is the monetizable
+SEGENTIX is not only an ATO automation product. ATO evidence is the monetizable
 wedge, but the larger vision is a governance layer for AI agents in regulated,
 classified, sovereign, and air-gapped environments.
 
@@ -48,7 +48,7 @@ continuous-monitoring snapshots, Skill approvals, and disposal records.
 
 ## Product Vision
 
-ASPM should become the neutral governance layer for AI agents in regulated
+SEGENTIX should become the neutral governance layer for AI agents in regulated
 environments.
 
 It should answer:
@@ -106,7 +106,7 @@ Commercial tools can often observe MCP tool calls. They have a harder time
 governing Skills, instruction packs, context loaders, and other artifacts that
 shape agent behavior before runtime.
 
-ASPM should treat Skills as auditable governance objects:
+SEGENTIX should treat Skills as auditable governance objects:
 
 - Name, version, hash, source, owner
 - Approved or blocked state
@@ -121,7 +121,7 @@ The strategy is not only U.S. ATO. EU public-sector, NATO-adjacent, and
 sovereign environments have their own constraints around data residency,
 deployment location, cloud dependency, and foreign SaaS exposure.
 
-ASPM should be credible in those environments by design, not by later
+SEGENTIX should be credible in those environments by design, not by later
 marketing copy.
 
 ### 5. Agent disposal and decommissioning
@@ -190,7 +190,7 @@ new entrant. Venture-backed companies are already competing there, and the
 hyperscaler pattern is to buy winners rather than build neutral governance.
 The defensible ground is where SaaS cannot deploy and auditors must sign:
 defense, classified, regulated, sovereign, and NATO-adjacent environments now
-facing AI-security compliance pressure. Build ASPM as the agent governance and
+facing AI-security compliance pressure. Build SEGENTIX as the agent governance and
 evidence layer for that world: RMF-native, air-gap deployable, Skill-aware,
 control-mapped, and capable of producing the artifacts that turn agent behavior
 into audit-ready proof.

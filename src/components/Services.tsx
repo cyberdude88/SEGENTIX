@@ -186,7 +186,7 @@ const services: Service[] = [
     signal: "Move from known agents to the AI assets nobody registered.",
     outcome: "Future expansion into rogue integrations, unauthorized protocol servers, AI risk registers, governance reports, and audit evidence packages.",
     body:
-      "Phase 2 and beyond expands SEGENTIX into shadow discovery, broader AI security posture management, and audit readiness for NIST AI RMF, NIST CSF, ISO 42001, and internal programs.",
+      "Phase 2 and beyond expands SEGENTIX into shadow discovery, broader AI agent risk analysis, and audit readiness for NIST AI RMF, NIST CSF, ISO 42001, and internal programs.",
     stack: ["Shadow agents", "Protocol inventory", "Credential exposure", "Trust chains", "AI audit readiness"],
   },
 ];

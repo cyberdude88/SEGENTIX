@@ -12,7 +12,7 @@ const gaps = [
   {
     icon: ShieldCheck,
     title: "Regulated, air-gapped, classified",
-    body: "SaaS-only competitors won't hit FedRAMP / IL4 / IL5 before 2028. ASPM ships as a single binary or container with zero phone-home — deployable inside the enclave.",
+    body: "SaaS-only competitors won't hit FedRAMP / IL4 / IL5 before 2028. SEGENTIX ships as a single binary or container with zero phone-home — deployable inside the enclave.",
   },
   {
     icon: FileBarChart,
@@ -32,7 +32,7 @@ const gaps = [
   {
     icon: Trash2,
     title: "Agent decommissioning",
-    body: "RMF disposal phase mandates secure destruction of weights, training data, containers, and secrets. No commercial tool does it. ASPM implements it as a state machine with attested artifacts.",
+    body: "RMF disposal phase mandates secure destruction of weights, training data, containers, and secrets. No commercial tool does it. SEGENTIX implements it as a state machine with attested artifacts.",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function LandingPage() {
         <div className="mx-auto max-w-[1200px] px-5 pt-20 pb-24">
           <div className="inline-flex items-center gap-2 hairline rounded-full px-3 h-7 bg-surface-2 text-[11px] text-fg-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            Agent Security Posture Management · v0.1 prototype
+            AI agent permission and risk analysis · v0.1 prototype
           </div>
           <h1 className="mt-6 text-[34px] sm:text-[44px] md:text-[52px] leading-[1.05] tracking-tight font-semibold max-w-[820px]">
             Agent governance and{" "}
@@ -189,7 +189,7 @@ export default function LandingPage() {
                 <span className="h-2.5 w-2.5 rounded-full bg-warn/70" />
                 <span className="h-2.5 w-2.5 rounded-full bg-accent/70" />
                 <span className="ml-3 text-[11px] text-fg-subtle font-mono">
-                  aspm · posture overview
+                  segentix · posture overview
                 </span>
               </div>
               <div className="p-5 space-y-3">

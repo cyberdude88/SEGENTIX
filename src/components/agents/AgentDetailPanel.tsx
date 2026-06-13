@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -9,7 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Avatar } from "@/components/ui/avatar";
 import { cn, timeAgo } from "@/lib/utils";
-import type { Agent, RiskClass } from "@/lib/types";
+import type { Agent, RiskClass, RiskLevel } from "@/lib/types";
 
 const riskTone: Record<RiskClass, "low" | "info" | "warn" | "high"> = {
   Read: "low",
@@ -20,6 +21,27 @@ const riskTone: Record<RiskClass, "low" | "info" | "warn" | "high"> = {
   Admin: "high",
 };
 
+const RISK_ORDER: RiskLevel[] = ["High", "Medium", "Low"];
+
+function lowerRisk(r: RiskLevel, steps: number): RiskLevel {
+  const i = RISK_ORDER.indexOf(r);
+  return RISK_ORDER[Math.min(i + steps, RISK_ORDER.length - 1)];
+}
+
+interface Mitigations {
+  contained: boolean;
+  credsFrozen: boolean;
+  runbookExecuted: boolean;
+  ownerNotified: boolean;
+}
+
+const EMPTY: Mitigations = {
+  contained: false,
+  credsFrozen: false,
+  runbookExecuted: false,
+  ownerNotified: false,
+};
+
 export default function AgentDetailPanel({
   agent,
   onClose,
@@ -27,6 +49,25 @@ export default function AgentDetailPanel({
   agent: Agent | null;
   onClose: () => void;
 }) {
+  const [mitigations, setMitigations] = useState<Record<string, Mitigations>>(
+    {},
+  );
+  const m: Mitigations = agent ? mitigations[agent.id] ?? EMPTY : EMPTY;
+  const steps =
+    (m.contained ? 1 : 0) +
+    (m.credsFrozen ? 1 : 0) +
+    (m.runbookExecuted ? 1 : 0);
+  const displayedRisk: RiskLevel = agent
+    ? lowerRisk(agent.risk, steps)
+    : "Low";
+  const apply = (patch: Partial<Mitigations>) => {
+    if (!agent) return;
+    setMitigations((prev) => ({
+      ...prev,
+      [agent.id]: { ...(prev[agent.id] ?? EMPTY), ...patch },
+    }));
+  };
+
   return (
     <Sheet open={!!agent} onOpenChange={(o) => !o && onClose()}>
       {agent && (
@@ -52,15 +93,15 @@ export default function AgentDetailPanel({
               </div>
               <Badge
                 variant={
-                  agent.risk === "High"
+                  displayedRisk === "High"
                     ? "high"
-                    : agent.risk === "Medium"
+                    : displayedRisk === "Medium"
                       ? "medium"
                       : "low"
                 }
                 dot
               >
-                {agent.risk}
+                {displayedRisk}
               </Badge>
             </div>
           </SheetHeader>
@@ -169,6 +210,53 @@ export default function AgentDetailPanel({
                   </li>
                 ))}
               </ul>
+            </section>
+
+            <section className="border-t border-line-subtle pt-4">
+              <h4 className="text-[11px] uppercase tracking-wider text-fg-subtle mb-3 flex items-center justify-between">
+                <span>Response actions</span>
+                <span className="text-fg-subtle">
+                  {steps > 0 ? `${steps} applied` : "None applied"}
+                </span>
+              </h4>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  disabled={m.contained}
+                  onClick={() => apply({ contained: true })}
+                  className="inline-flex items-center justify-center gap-1.5 border border-danger/40 bg-danger/10 px-3 py-2 text-[11px] mono uppercase tracking-[0.16em] text-danger hover:bg-danger/20 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {m.contained ? "✓ Quarantined" : "Quarantine"}
+                </button>
+                <button
+                  type="button"
+                  disabled={m.credsFrozen}
+                  onClick={() => apply({ credsFrozen: true })}
+                  className="inline-flex items-center justify-center gap-1.5 border border-warn/40 bg-warn/10 px-3 py-2 text-[11px] mono uppercase tracking-[0.16em] text-warn hover:bg-warn/20 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {m.credsFrozen ? "✓ Creds frozen" : "Freeze creds"}
+                </button>
+                <button
+                  type="button"
+                  disabled={m.runbookExecuted}
+                  onClick={() => apply({ runbookExecuted: true })}
+                  className="inline-flex items-center justify-center gap-1.5 border border-accent/40 bg-accent/10 px-3 py-2 text-[11px] mono uppercase tracking-[0.16em] text-accent hover:bg-accent/20 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {m.runbookExecuted ? "✓ Runbook done" : "Execute runbook"}
+                </button>
+                <button
+                  type="button"
+                  disabled={m.ownerNotified}
+                  onClick={() => apply({ ownerNotified: true })}
+                  className="inline-flex items-center justify-center gap-1.5 border border-info/40 bg-info/10 px-3 py-2 text-[11px] mono uppercase tracking-[0.16em] text-info hover:bg-info/20 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {m.ownerNotified ? "✓ Owner paged" : "Notify owner"}
+                </button>
+              </div>
+              <div className="mt-2 text-[10px] text-fg-subtle">
+                Quarantine, Freeze creds, and Execute runbook each lower risk by
+                one tier.
+              </div>
             </section>
           </div>
         </SheetContent>

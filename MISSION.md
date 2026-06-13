@@ -1,4 +1,4 @@
-# ASPM — Mission, Objectives, Redundancy, and Gap-Filling Functions
+# SEGENTIX — Mission, Objectives, Redundancy, and Gap-Filling Functions
 
 > Working document derived from `STRATEGY.md` and `market_strategy.txt` (June 2026), and reconciled
 > against `SPEC.md` (current build). Supersedes the "Product positioning" line in

@@ -12,7 +12,7 @@ interface ThemeContextValue {
 
 const ThemeContext = React.createContext<ThemeContextValue | null>(null);
 
-export const STORAGE_KEY = "aspm-theme";
+export const STORAGE_KEY = "segentix-theme";
 const themeListeners = new Set<() => void>();
 
 function readTheme(): Theme {

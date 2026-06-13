@@ -11,7 +11,7 @@ interface ThemeCtx {
 
 const Ctx = React.createContext<ThemeCtx | null>(null);
 
-export const STORAGE_KEY = "aspm-theme";
+export const STORAGE_KEY = "segentix-theme";
 
 function readTheme(): Theme {
   if (typeof document === "undefined") return "dark";

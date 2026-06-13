@@ -120,7 +120,7 @@ export default function Hero() {
         <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-between p-6 md:p-10 pointer-events-none">
           <div className="flex items-start justify-between">
             <div className="mono text-xs text-accent uppercase tracking-[0.3em]">
-              <div>{"ASPM // v0.1"}</div>
+              <div>{"SEGENTIX // v0.1"}</div>
               <div className="text-fg-dim mt-1">DISCOVER · MAP · EVIDENCE</div>
             </div>
             <div className="mono text-xs text-fg-dim text-right">

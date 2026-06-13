@@ -19,7 +19,7 @@ export default function TopNav() {
     <header className="h-12 hairline-b flex items-center gap-3 px-4 bg-bg-base/80 backdrop-blur supports-[backdrop-filter]:bg-bg-base/60 sticky top-0 z-30">
       <Link href="/demo" className="md:hidden flex items-center gap-2">
         <span className="h-5 w-5 rounded-md bg-accent" aria-hidden="true" />
-        <span className="text-[13px] font-semibold">ASPM</span>
+        <span className="text-[13px] font-semibold">SEGENTIX</span>
       </Link>
 
       <nav className="hidden sm:flex items-center gap-1 rounded-lg bg-surface-2 hairline p-0.5">
